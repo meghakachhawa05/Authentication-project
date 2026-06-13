@@ -147,8 +147,7 @@ LOGIN_URL = 'user_login'
 EMAIL_HOST="smtp.gmail.com"
 EMAIL_PORT=465
 EMAIL_USE_SSL=True
-EMAIL_HOST_USER="kachhawamegha42@gmail.com"
-EMAIL_HOST_PASSWORD="eaas aaty znny vfqe"
-
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 LOGOUT_REDIRECT_URL = 'user_login'
