@@ -81,13 +81,13 @@ WSGI_APPLICATION = "Authentication.wsgi.application"
 
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "meghadb",           # Database name
-        "USER": "root",               # Your database user
-        "PASSWORD": "Megha@555",           # Your database password
-        "HOST": "localhost",          # Database host
-        "PORT": "3306",               # MySQL default port
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
     }
 }
 
