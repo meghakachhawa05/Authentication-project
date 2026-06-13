@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  <style>
+    .container {
+      max-width: 420px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">Login</div>
+    <div class="content">
+
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags == 'error' %}
+            <div class="alert alert-danger" role="alert">
+              {{ message }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      <form method="POST" action="{% url 'user_login' %}">
+        {% csrf_token %}
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" placeholder="Enter your email" required name="email">
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" required name="password">
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+
+      <div class="already-account">
+        <a href="{% url 'register' %}">Create an account</a>
+        <p>Forgot your password? <a href="{% url 'forgot_password' %}">Reset Password</a></p>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
